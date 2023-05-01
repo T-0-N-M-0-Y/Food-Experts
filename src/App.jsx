@@ -1,12 +1,16 @@
-import './App.css'
+import { Outlet } from 'react-router-dom'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
 
 function App() {
 
   return (
     <div>
-      <h3 className='text-center text-4xl'> This Is Assignment 10. Lets Go!!!!!!!!!!!!!!!!!!</h3>
+      <Header></Header>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   )
 }
 
-export default App
+export default App;
