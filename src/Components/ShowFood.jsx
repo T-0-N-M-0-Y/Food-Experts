@@ -6,8 +6,8 @@ const ShowFood = ({ food }) => {
 
     return (
         <div>
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img className='h-96 w-full' src= {image} alt="Album" /></figure>
+            <div className="card lg:card-side bg-blue-100 shadow-xl">
+                <figure><img className='h-96' src= {image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title"> {name} </h2>
                     <p>Price: ${price}</p>
