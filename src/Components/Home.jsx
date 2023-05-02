@@ -1,11 +1,14 @@
 import React from 'react';
 import Head from './Head';
+import Foods from './Foods';
+import Catagories from './Catagories';
 
 const Home = () => {
     return (
         <div>
             <Head></Head>
-           <h1 className='text-5xl font-bold text-center'>This is Home</h1>
+            <Catagories></Catagories>
+            <Foods></Foods>
         </div>
     );
 };
