@@ -29,7 +29,7 @@ const Foods = () => {
                 }
             </div>
 
-            <div className='text-center '>
+            <div className='text-center'>
             {foods.length > 4 && !showAll && (
                 <button onClick={() => handleShowAll(true)} className="btn w-40 mt-10 bg-lime-200 hover:bg-orange-950 text-green-600 border-none">See More</button>
             )}
