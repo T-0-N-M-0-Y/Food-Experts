@@ -6,7 +6,7 @@ const Catagories = () => {
     const [catagories, setCatagories] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/catagory")
+        fetch("https://assignmnet-10-chef-recipe-hunter-server-t-0-n-m-0-y.vercel.app/catagory")
             .then(res => res.json())
             .then(data => setCatagories(data))
             .catch(error => console.error(error))

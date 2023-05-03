@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Header = () => {
@@ -18,8 +18,8 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <Link className='mr-5 hover:bg-orange-950 hover:text-white p-2 rounded-md' to={'/'}>Home</Link>
-                        <Link className=' hover:bg-orange-950 hover:text-white p-2 rounded-md' to={'/blog'}>Blogs</Link>
+                        <NavLink className='mr-5 hover:bg-orange-950 hover:text-white p-2 rounded-md' to={'/'}>Home</NavLink>
+                        <NavLink className=' hover:bg-orange-950 hover:text-white p-2 rounded-md' to={'/blog'}>Blogs</NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">

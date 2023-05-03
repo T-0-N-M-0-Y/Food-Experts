@@ -7,7 +7,7 @@ const Foods = () => {
     const [showAll, setShowAll] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        fetch('https://assignmnet-10-chef-recipe-hunter-server-t-0-n-m-0-y.vercel.app/foods')
             .then(res => res.json())
             .then(data => setFoods(data))
             .catch(error => console.error(error))
