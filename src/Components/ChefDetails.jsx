@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const ChefDetails = () => {
-    
+
     const showDetails = useLoaderData();
 
     const [showButton, setShowButton] = useState(true);
@@ -50,7 +52,10 @@ const ChefDetails = () => {
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name}</h2>
                         <p>{details}</p>
-                        <p>Ratings: {rating} Out of 5</p>
+                        <div className="flex-grow-1 flex items-center">
+                            Ratings: <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
+                            <span className='ml-3'>{rating?.number} {rating}</span>
+                        </div>
                         <div className="card-actions justify-end">
                             {
                                 showButton && (
@@ -66,7 +71,10 @@ const ChefDetails = () => {
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name1}</h2>
                         <p>{details1}</p>
-                        <p>Ratings: {rating1} Out of 5</p>
+                        <div className="flex-grow-1 flex items-center">
+                            Ratings: <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
+                            <span className='ml-3'>{rating?.number} {rating}</span>
+                        </div>
                         <div className="card-actions justify-end">
                             {
                                 showButton1 && (
@@ -82,7 +90,10 @@ const ChefDetails = () => {
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name2}</h2>
                         <p>{details2}</p>
-                        <p>Ratings: {rating2} Out of 5</p>
+                        <div className="flex-grow-1 flex items-center">
+                            Ratings: <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
+                            <span className='ml-3'>{rating?.number} {rating}</span>
+                        </div>
                         <div className="card-actions justify-end">
                             {
                                 showButton2 && (
