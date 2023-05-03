@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 
 const ShowChefs = ({ chef }) => {
 
     const { id, chefName, picture, yearsOfExperience, numberOfRecipes, likes } = chef;
-
-    let [loading, setLoading] = useState(true);
 
     return (
         <div>
@@ -18,7 +16,7 @@ const ShowChefs = ({ chef }) => {
                     <p>Recipies: {numberOfRecipes} Recipies</p>
                     <div className="card-actions flex justify-between items-center">
                         <p>Social: {likes} Likes</p>
-                        <Link to={`/chefs/${id}`}><button onClick={() => setLoading(!loading)} className="btn bg-lime-200 hover:bg-orange-950 text-green-600 border-none">View Recipies</button></Link>
+                        <Link to={`/chefs/${id}`}><button className="btn bg-lime-200 hover:bg-orange-950 text-green-600 border-none">View Recipies</button></Link>
                     </div>
                 </div>
             </div>
