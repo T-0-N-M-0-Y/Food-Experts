@@ -53,7 +53,7 @@ const ChefDetails = () => {
                         <h2 className="card-title text-2xl font-bold">{name}</h2>
                         <p>{details}</p>
                         <div className="flex-grow-1 flex items-center">
-                            Ratings: <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
+                            Ratings: <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
                             <span className='ml-3'>{rating?.number} {rating}</span>
                         </div>
                         <div className="card-actions justify-end">
@@ -72,8 +72,8 @@ const ChefDetails = () => {
                         <h2 className="card-title text-2xl font-bold">{name1}</h2>
                         <p>{details1}</p>
                         <div className="flex-grow-1 flex items-center">
-                            Ratings: <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
-                            <span className='ml-3'>{rating?.number} {rating}</span>
+                        Ratings: <Rating style={{ maxWidth: 150 }} value={rating1} readOnly />
+                            <span className='ml-3'>{rating1?.number} {rating1}</span>
                         </div>
                         <div className="card-actions justify-end">
                             {
@@ -91,8 +91,8 @@ const ChefDetails = () => {
                         <h2 className="card-title text-2xl font-bold">{name2}</h2>
                         <p>{details2}</p>
                         <div className="flex-grow-1 flex items-center">
-                            Ratings: <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
-                            <span className='ml-3'>{rating?.number} {rating}</span>
+                            Ratings: <Rating style={{ maxWidth: 150 }} value={rating2} readOnly />
+                            <span className='ml-3'>{rating2?.number} {rating2}</span>
                         </div>
                         <div className="card-actions justify-end">
                             {

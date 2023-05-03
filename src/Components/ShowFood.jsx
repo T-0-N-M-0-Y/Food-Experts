@@ -16,7 +16,7 @@ const ShowFood = ({ food }) => {
                     <p>Price: ${price}</p>
                     <p>{details}</p>
                     <div className="flex-grow-1 flex items-center">
-                        <Rating style={{ maxWidth: 150 }} value={Math.round(rating?.number || 0)} readOnly />
+                        <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
                         <span className='ml-3'>{rating?.number} {rating}</span>
                     </div>
                     <div className="card-actions justify-end">
