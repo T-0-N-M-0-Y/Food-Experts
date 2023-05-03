@@ -21,7 +21,7 @@ const Foods = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-bold text-center my-20'>Our Featured Products</h1>
+            <h1 className='text-3xl font-bold text-center my-20'>Our Awesome Services</h1>
 
             <div className='grid grid-cols-2 gap-5 px-10'>
                 {
@@ -31,7 +31,7 @@ const Foods = () => {
 
             <div className='text-center'>
             {foods.length > 4 && !showAll && (
-                <button onClick={() => handleShowAll(true)} className="btn w-40 mt-10 bg-lime-200 hover:bg-orange-950 text-green-600 border-none">See More</button>
+                <button onClick={() => handleShowAll(true)} className="btn w-40 my-10 bg-lime-200 hover:bg-orange-950 text-green-600 border-none">See More</button>
             )}
             </div>
         </div>

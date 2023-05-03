@@ -6,7 +6,7 @@ const ShowFood = ({ food }) => {
 
     return (
         <div>
-            <div className="card lg:card-side bg-blue-100 shadow-xl">
+            <div className="card lg:card-side bg-lime-200 shadow-xl">
                 <figure><img className='h-96' src= {image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title"> {name} </h2>

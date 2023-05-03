@@ -11,6 +11,8 @@ import Blog from './Components/Blog.jsx';
 import Signup from './Components/Signup.jsx';
 import Login from './Components/Login.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
+import ChefDetails from './Components/ChefDetails.jsx';
+import AuthProvider from './Components/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,12 +36,19 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup></Signup>,
       },
+      {
+        path: "/chefs/:id",
+        element: <ChefDetails></ChefDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

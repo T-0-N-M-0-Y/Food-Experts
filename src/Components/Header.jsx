@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider';
 
 const Header = () => {
+
+    const {user} = useContext(AuthContext);
+
     return (
         <div>
             <div className="navbar bg-lime-200">
                 <div className="navbar-start">
-                    <p className="font-bold text-3xl">Food-Expert</p>
+                    <p className="font-bold text-3xl">Food-Experts</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -15,7 +19,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className='mr-2' to={'/login'}><button className="btn btn-outline hover:bg-orange-950">Login</button></Link>
+                    { user ? <Link className='mr-2' to={'/login'}><button className="btn btn-outline hover:bg-orange-950">Logout</button></Link> : <Link className='mr-2' to={'/login'}><button className="btn btn-outline hover:bg-orange-950">Login</button></Link>}
                     <Link to={'/signup'}><button className="btn btn-outline hover:bg-orange-950">Sign Up</button></Link>
                     <img className='h-14 w-14 ml-2 rounded-full' src="https://www.resumeviking.com/wp-content/uploads/2018/10/Front-End-developer-profile-picture.jpg" alt="" />
                 </div>
