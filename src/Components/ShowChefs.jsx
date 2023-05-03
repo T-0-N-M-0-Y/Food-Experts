@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const ShowChefs = ({ chef }) => {
 
     const { id, chefName, picture, yearsOfExperience, numberOfRecipes, likes } = chef;
-    console.log(chef);
 
     let [loading, setLoading] = useState(true);
 

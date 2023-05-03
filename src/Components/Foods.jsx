@@ -23,7 +23,7 @@ const Foods = () => {
         <div>
             <h1 className='text-3xl font-bold text-center my-20'>Our Awesome Services</h1>
 
-            <div className='grid grid-cols-2 gap-5 px-10'>
+            <div className='grid grid-cols-2 gap-5 px-10 my-20'>
                 {
                     foodsToShow && foodsToShow.map(food => <ShowFood key={food.id} food={food}></ShowFood>)
                 }
