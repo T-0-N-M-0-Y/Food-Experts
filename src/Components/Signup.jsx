@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 
 const Signup = () => {
 
     const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -14,13 +15,18 @@ const Signup = () => {
         const photo = form.photo.value;
         const password = form.password.value;
 
+        console.log(name, email, photo, password);
+
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
+                setError('');
+                event.target.reset();
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.message);
+                setError(error.message)
             })
     }
 
@@ -46,13 +52,13 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" required/>
+                                <input type="text" name='photo' placeholder="PhotoURL" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="Password" className="input input-bordered" required/>
+                                <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
 
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -63,6 +69,7 @@ const Signup = () => {
                             </div>
                         </form>
                         <Link to={"/login"} className="label-text-alt link link-hover">Already have a Account?</Link>
+                        <p className='text-red-600'>{error}</p>
                     </div>
                 </div>
             </div>

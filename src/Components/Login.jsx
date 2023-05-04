@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -7,6 +7,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 const Login = () => {
 
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,30 +24,41 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
+                console.log(loggedUser);
                 navigate(from, { replace: true });
+                setError('')
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.message);
+                setError(error.message)
             })
     }
 
 
-    const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = event => {
+
+        event.preventDefault();
+
         googleSignIn(provider)
             .then(result => {
                 const logUser = result.user;
                 console.log(logUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.message);
             })
     }
 
-    const handleGithubSignIn = () => {
+    const handleGithubSignIn = event => {
+
+        event.preventDefault();
+
         githubSignIn(provider1)
             .then(result => {
                 const logUser = result.user;
                 console.log(logUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -83,6 +95,7 @@ const Login = () => {
                             <button className='mr-3' onClick={handleGoogleSignIn}><FaGoogle></FaGoogle></button>
                             <button onClick={handleGithubSignIn}><FaGithub></FaGithub></button>
                         </div>
+                        <p className='text-red-600'>{error}</p>
                     </div>
                 </div>
             </div>

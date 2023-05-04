@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import './Header.css'
 
 const Header = () => {
 
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -18,14 +20,25 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <NavLink className='mr-5 hover:bg-orange-950 hover:text-white p-2 rounded-md' to={'/'}>Home</NavLink>
-                        <NavLink className=' hover:bg-orange-950 hover:text-white p-2 rounded-md' to={'/blog'}>Blogs</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "active" : "" } to={'/'}><span className='mr-5 text-xl font-semibold'>Home</span></NavLink>
+
+                        <NavLink className={({ isActive }) => isActive ? "active" : "" } to={'/blog'}><span className='mr-5 text-xl font-semibold'>Blogs</span></NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    { user ? <Link className='mr-2'><button onClick={handleLogOut} className="btn btn-outline hover:bg-orange-950">Logout</button></Link> : <Link className='mr-2' to={'/login'}><button className="btn btn-outline hover:bg-orange-950">Login</button></Link>}
-                    <Link to={'/signup'}><button className="btn btn-outline hover:bg-orange-950">Sign Up</button></Link>
-                    <img className='h-14 w-14 ml-2 rounded-full' src="https://www.resumeviking.com/wp-content/uploads/2018/10/Front-End-developer-profile-picture.jpg" alt="" />
+                    {user ?
+                        <Link className='mr-2'><button onClick={handleLogOut} className="btn btn-outline hover:bg-orange-950">Logout</button></Link>
+                        :
+                        <Link className='mr-2' to={'/login'}><button className="btn btn-outline hover:bg-orange-950">Login</button></Link>
+                    }
+
+                    {user ?
+                        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                            <button><img className='h-10 w-10 ml-2 rounded-full' src="https://www.resumeviking.com/wp-content/uploads/2018/10/Front-End-developer-profile-picture.jpg" alt="" /></button>
+                        </div>
+                        :
+                        <Link to={'/signup'}><button className="btn btn-outline hover:bg-orange-950">Sign Up</button></Link>
+                    }
                 </div>
             </div>
         </div>
