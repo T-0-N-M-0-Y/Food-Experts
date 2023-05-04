@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ReactToPdf from 'react-to-pdf';
 
 function MyComponent() {
@@ -32,11 +33,15 @@ const Blog = () => {
         <div>
             <ReactToPdf targetRef={ref} filename="my-document.pdf">
                 {({ toPdf }) => (
-                    <button className='btn  bg-lime-200 hover:bg-orange-950 text-green-600 border-none mt-20 ml-20' onClick={toPdf}>Download PDF</button>
+                    <button className='btn  bg-lime-200 hover:bg-orange-950 text-green-600 border-none lg:mt-20 lg:ml-20 mt-10 ml-5' onClick={toPdf}>Download PDF</button>
                 )}
             </ReactToPdf>
             <div ref={ref}>
                 <MyComponent />
+            </div>
+            
+            <div className='text-center'>
+                <Link to={'/'}><button className="btn bg-lime-200 hover:bg-orange-950 text-green-600 border-none my-10">Back To Home</button></Link>
             </div>
         </div>
     );
