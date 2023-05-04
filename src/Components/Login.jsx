@@ -1,13 +1,18 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location ?.state ?.from ?.pathname || "/";
+    const from = location?.state?.from?.pathname || "/";
+    const provider = new GoogleAuthProvider();
+    const provider1 = new GithubAuthProvider();
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -18,7 +23,30 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                navigate(from, {replace: true});
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(provider)
+            .then(result => {
+                const logUser = result.user;
+                console.log(logUser);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn(provider1)
+            .then(result => {
+                const logUser = result.user;
+                console.log(logUser);
             })
             .catch(error => {
                 console.log(error);
@@ -51,6 +79,10 @@ const Login = () => {
                             </div>
                         </form>
                         <Link to={"/signup"} className="label-text-alt link link-hover">No Account? </Link>
+                        <div className='mt-2'>
+                            <button className='mr-3' onClick={handleGoogleSignIn}><FaGoogle></FaGoogle></button>
+                            <button onClick={handleGithubSignIn}><FaGithub></FaGithub></button>
+                        </div>
                     </div>
                 </div>
             </div>
