@@ -34,7 +34,7 @@ const Header = () => {
 
                     {user ?
                         <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-                            <button><img className='h-10 w-10 ml-2 rounded-full' src="https://www.resumeviking.com/wp-content/uploads/2018/10/Front-End-developer-profile-picture.jpg" alt="" /></button>
+                            <button><img className='h-10 w-10 ml-2 rounded-full' src={user.photoURL} alt="" /></button>
                         </div>
                         :
                         <Link to={'/signup'}><button className="btn btn-outline hover:bg-orange-950">Sign Up</button></Link>
