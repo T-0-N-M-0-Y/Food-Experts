@@ -23,6 +23,7 @@ const Signup = () => {
                 setError('');
                 event.target.reset();
                 updateUserData(result.user, name, photo)
+                window.location.reload()
             })
             .catch(error => {
                 console.log(error.message);
@@ -35,10 +36,12 @@ const Signup = () => {
             displayName: name,
             photoURL: photo
         })
-        .then(() => {})
-        .catch((error =>{
-            setError(error.message);
-        }))
+            .then(() => {
+
+            })
+            .catch((error => {
+                setError(error.message);
+            }))
     }
 
     return (
