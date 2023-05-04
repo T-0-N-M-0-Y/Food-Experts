@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import LazyLoad from 'react-lazyload';
 
 const ChefDetails = () => {
 
@@ -33,7 +34,9 @@ const ChefDetails = () => {
         <div>
             <div className="lg:hero min-h-screen bg-teal-400">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={picture} className="max-w-lg rounded-lg shadow-2xl" />
+                    <LazyLoad>
+                        <img src={picture} className="max-w-lg rounded-lg shadow-2xl" />
+                    </LazyLoad>
                     <div>
                         <h1 className="text-5xl font-bold">{chefName}</h1>
                         <p className="py-6">{bio}</p>

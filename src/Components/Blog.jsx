@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactToPdf from 'react-to-pdf';
 
-const Blog = () => {
+function MyComponent() {
     return (
-        <div className='my-20'>
+        <div className='mb-20'>
             <div className='md:px-20 px-5'>
                 <h1 className=' mt-10 text-xl font-bold'>1. Tell us the differences between uncontrolled and controlled components.</h1>
                 <p className='mt-5'>Ans: In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally.</p>
@@ -22,6 +23,23 @@ const Blog = () => {
             </div>
         </div>
     );
-};
+}
+
+const Blog = () => {
+    const ref = React.createRef();
+
+    return (
+        <div>
+            <ReactToPdf targetRef={ref} filename="my-document.pdf">
+                {({ toPdf }) => (
+                    <button className='btn  bg-lime-200 hover:bg-orange-950 text-green-600 border-none mt-20 ml-20' onClick={toPdf}>Download PDF</button>
+                )}
+            </ReactToPdf>
+            <div ref={ref}>
+                <MyComponent />
+            </div>
+        </div>
+    );
+}
 
 export default Blog;
