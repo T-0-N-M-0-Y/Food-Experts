@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
+import { FaThumbsUp } from 'react-icons/fa';
 
 
 const ShowChefs = ({ chef }) => {
@@ -18,7 +19,7 @@ const ShowChefs = ({ chef }) => {
                     <p>Experience: {yearsOfExperience} Years</p>
                     <p>Recipies: {numberOfRecipes} Recipies</p>
                     <div className="card-actions flex justify-between items-center">
-                        <p>Social: {likes} Likes</p>
+                        <p className='flex items-center'>Social: <FaThumbsUp className='mx-3 text-yellow-400'></FaThumbsUp> {likes}</p>
                         <Link to={`/chefs/${id}`}><button className="btn bg-lime-200 hover:bg-orange-950 text-green-600 border-none">View Recipies</button></Link>
                     </div>
                 </div>

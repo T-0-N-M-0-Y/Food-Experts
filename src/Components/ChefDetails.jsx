@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import LazyLoad from 'react-lazyload';
+import { FaThumbsUp } from 'react-icons/fa';
 
 const ChefDetails = () => {
 
@@ -32,7 +33,7 @@ const ChefDetails = () => {
 
     return (
         <div>
-            <div className="lg:hero min-h-screen bg-teal-400">
+            <div className="lg:hero min-h-screen bg-lime-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <LazyLoad>
                         <img src={picture} className="max-w-lg rounded-lg shadow-2xl" />
@@ -42,7 +43,7 @@ const ChefDetails = () => {
                         <p className="py-6">{bio}</p>
                         <p>Experience: {yearsOfExperience} Years</p>
                         <p>Recipies: {numberOfRecipes} Recipies</p>
-                        <p>Social: {likes} Likes</p>
+                        <p className='flex items-center'>Social: <FaThumbsUp className='mx-3 text-yellow-400'></FaThumbsUp> {likes}</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@ const ChefDetails = () => {
             <h1 className='text-3xl font-bold text-center my-20'>His Signature Recipies</h1>
 
             <div className='grid lg:grid-cols-3 gap-5'>
-                <div className="card w-full h-full bg-teal-400 shadow-xl">
+                <div className="card w-full h-full bg-lime-200 shadow-xl">
                     <figure><img className='h-96' src={image} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name}</h2>
@@ -69,7 +70,7 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-full bg-teal-400 shadow-xl">
+                <div className="card w-full bg-lime-200 shadow-xl">
                     <figure><img className='h-96' src={image1} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name1}</h2>
@@ -88,7 +89,7 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-full bg-teal-400 shadow-xl">
+                <div className="card w-full bg-lime-200 shadow-xl">
                     <figure><img className='h-96' src={image2} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name2}</h2>

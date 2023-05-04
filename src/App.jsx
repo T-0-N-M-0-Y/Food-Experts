@@ -5,7 +5,7 @@ import Footer from './Components/Footer'
 function App() {
 
   return (
-    <div>
+    <div className='bg-teal-400'>
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
