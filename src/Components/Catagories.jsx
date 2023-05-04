@@ -14,6 +14,7 @@ const Catagories = () => {
 
     return (
         <div>
+            <h1 className='text-3xl font-bold text-center my-20'>Find Your Favourite Dish</h1>
             <div className='grid md:grid-cols-3 lg:grid-cols-6'>
                 {
                     catagories.map(catagory => <Catagory key={catagory.id} catagory={catagory}></Catagory>)
