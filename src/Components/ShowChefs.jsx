@@ -12,7 +12,7 @@ const ShowChefs = ({ chef }) => {
         <div>
             <div className="card w-full bg-lime-200 shadow-xl">
                 <LazyLoad>
-                    <figure><img className='h-96' src={picture} alt="" /></figure>
+                    <figure><img className='h-96 w-full' src={picture} alt="" /></figure>
                 </LazyLoad>
                 <div className="card-body">
                     <h2 className="card-title text-2xl font-bold">{chefName}</h2>

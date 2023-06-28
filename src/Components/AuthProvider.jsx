@@ -25,7 +25,6 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         signOut(auth);
     }
-
     
     const googleSignIn = provider => {
         setLoading(true);

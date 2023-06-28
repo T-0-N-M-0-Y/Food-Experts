@@ -3,6 +3,7 @@ import Head from './Head';
 import Foods from './Foods';
 import Catagories from './Catagories';
 import Chefs from './Chefs';
+import Header from './Header';
 
 const Home = () => {
     return (
